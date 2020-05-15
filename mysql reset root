@@ -2,6 +2,7 @@ https://www.tecmint.com/reset-root-password-in-mysql-8/
 https://stackoverflow.com/questions/50691977/how-to-reset-the-root-password-in-mysql-8-0-11
 https://defragged.org/2020/02/29/mysql-error-1819-hy000-your-password-does-not-satisfy-the-current-policy-requirements/
 
+
 systemctl stop mysqld.service 
 mysqld --skip-grant-tables --user=mysql &
 mysql
@@ -9,3 +10,11 @@ FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_passowrd';
 systemctl restart mysqld.service 
 mysql -u root -p
+
+
+-------------------------------------
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourpasswd'
+-----------------------------------
+SET GLOBAL validate_password.policy = 0;   // For LOW
+SET GLOBAL validate_password.policy = 1;   // For MEDIUM
+SET GLOBAL validate_password.policy = 2;
