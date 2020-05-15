@@ -1,0 +1,9 @@
+https://www.tecmint.com/reset-root-password-in-mysql-8/
+
+systemctl stop mysqld.service 
+mysqld --skip-grant-tables --user=mysql &
+mysql
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_passowrd';
+systemctl restart mysqld.service 
+mysql -u root -p
