@@ -18,3 +18,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourpass
 SET GLOBAL validate_password.policy = 0;   // For LOW
 SET GLOBAL validate_password.policy = 1;   // For MEDIUM
 SET GLOBAL validate_password.policy = 2;
+
+
+--------------------------
+https://www.youtube.com/watch?v=vOUMmsHlMcY
